@@ -1,0 +1,1325 @@
+﻿<process name="work queues" version="1.0" bpversion="6.5.1.14401" narrative="Work queue object to be exposed and consumed by external " byrefcollection="true" type="object" runmode="Exclusive" preferredid="021ef7f7-2a27-46d7-9cb3-135fc771c836">
+  <appdef>
+    <element name="Application Root">
+      <id>aee38fb8-23d3-4a3b-883d-3690c4d892a8</id>
+      <type>Application</type>
+      <basetype>Application</basetype>
+      <datatype>unknown</datatype>
+      <diagnose>False</diagnose>
+    </element>
+  </appdef>
+  <view>
+    <camerax>0</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="baf3c8ed-59c0-4cb1-b0ec-c4241ffc02bb" type="CleanUp" published="True">
+    <name>Clean Up</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="b6be916f-558e-4263-bb7d-70745dc3ebb3" type="Normal" published="True">
+    <name>mark completed</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="3a215081-f117-4256-8c0b-d7f38046e7ab" type="Normal" published="True">
+    <name>mark exception</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="b37aba1b-bc6f-4721-bb1b-67d2df6ca839" type="Normal" published="True">
+    <name>add to queue</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>63</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="b20171d4-87c7-4425-9e28-2765dd230f70" type="Normal" published="True">
+    <name>decoder</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="62c95582-6d89-4d8d-bdc6-39714fa72f67" type="Normal" published="True">
+    <name>get next item</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>42</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="8f53b6ff-ecfd-4d24-a474-68e01ada0f2d" name="Start" type="Start">
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>7670a338-f6ed-43e6-a385-3494d66292f8</onsuccess>
+  </stage>
+  <stage stageid="7670a338-f6ed-43e6-a385-3494d66292f8" name="End" type="End">
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="3560186a-c243-4e42-8b64-bb288b776f1a" name="Stage1" type="ProcessInfo">
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <references>
+      <reference>System.dll</reference>
+      <reference>System.Data.dll</reference>
+      <reference>System.Xml.dll</reference>
+      <reference>System.Drawing.dll</reference>
+      <reference>System.Runtime.dll</reference>
+    </references>
+    <imports>
+      <import>System</import>
+      <import>System.Drawing</import>
+      <import>System.Data</import>
+      <import>System.Text</import>
+    </imports>
+    <language>csharp</language>
+    <globalcode><![CDATA[]]></globalcode>
+    <code><![CDATA[]]></code>
+  </stage>
+  <stage stageid="81d359e5-19d5-49c0-89f1-5f1564b4229d" name="Clean Up" type="SubSheetInfo">
+    <subsheetid>baf3c8ed-59c0-4cb1-b0ec-c4241ffc02bb</subsheetid>
+    <narrative>In progress</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="39830e2a-03da-43ae-963f-7b6acf308807" name="Start" type="Start">
+    <subsheetid>baf3c8ed-59c0-4cb1-b0ec-c4241ffc02bb</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>16c3eaaa-da5b-4296-9fc0-8a904d67868c</onsuccess>
+  </stage>
+  <stage stageid="16c3eaaa-da5b-4296-9fc0-8a904d67868c" name="End" type="End">
+    <subsheetid>baf3c8ed-59c0-4cb1-b0ec-c4241ffc02bb</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="4eb28a64-1011-4e1f-9bcf-4ccaa0ac8a11" name="Note1" type="Note">
+    <subsheetid>baf3c8ed-59c0-4cb1-b0ec-c4241ffc02bb</subsheetid>
+    <narrative>Clean Up Page
+
+This is an optional page where you might choose to perform some finalisation (or "cleanup") tasks as your business object is closed down.
+
+The cleanup action will be called automatically immediately after closing your business object at the end of a business process.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than before the disposal of the business object.</narrative>
+    <displayx>-180</displayx>
+    <displayy>60</displayy>
+    <displaywidth>180</displaywidth>
+    <displayheight>230</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="203939da-118a-4d44-9457-e913f58134c5" name="Note2" type="Note">
+    <narrative>Initialise Page
+
+This is an optional page where you might choose to perform some initialisation tasks after your business object is loaded.
+
+The initialise action will be called automatically immediately after loading your business object.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than after the creation of the object.</narrative>
+    <displayx>-180</displayx>
+    <displayy>60</displayy>
+    <displaywidth>180</displaywidth>
+    <displayheight>230</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="ec6e5b15-eba2-4022-82bb-70256e822d5f" name="mark completed" type="SubSheetInfo">
+    <subsheetid>b6be916f-558e-4263-bb7d-70745dc3ebb3</subsheetid>
+    <narrative>mark item as completed</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="6795e15e-a2de-42a6-9d01-daae752e2d79" name="Start" type="Start">
+    <subsheetid>b6be916f-558e-4263-bb7d-70745dc3ebb3</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-30</displayx>
+    <displayy>-135</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Item ID" stage="Item ID" />
+      <input type="text" name="Queue Name" stage="Queue Name" />
+      <input type="text" name="Status" stage="Status" />
+      <input type="text" name="Tag" stage="Tag" />
+    </inputs>
+    <onsuccess>21042dbd-eeeb-4886-b02c-c05a8c9ea45f</onsuccess>
+  </stage>
+  <stage stageid="631cc6cf-a3c6-4f25-8a2c-9e97c1708d4c" name="End" type="End">
+    <subsheetid>b6be916f-558e-4263-bb7d-70745dc3ebb3</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-30</displayx>
+    <displayy>45</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="99779b1f-5c3f-4bb8-ab38-ca57ffb27001" name="Item ID" type="Data">
+    <subsheetid>b6be916f-558e-4263-bb7d-70745dc3ebb3</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>90</displayx>
+    <displayy>-120</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="dd178131-264a-4043-a4e2-094e1c1c2d0c" name="mark exception" type="SubSheetInfo">
+    <subsheetid>3a215081-f117-4256-8c0b-d7f38046e7ab</subsheetid>
+    <narrative>mark item as exception</narrative>
+    <displayx>-195</displayx>
+    <displayy>-135</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="ca23ae52-0106-4772-b983-f673144e4c27" name="Start" type="Start">
+    <subsheetid>3a215081-f117-4256-8c0b-d7f38046e7ab</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-30</displayx>
+    <displayy>-165</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Item ID" stage="Item ID" />
+      <input type="text" name="Exception Reason" stage="Exception Reason" />
+      <input type="text" name="Queue Name" stage="Queue Name" />
+      <input type="text" name="Status" stage="Status" />
+      <input type="text" name="Tag" stage="Tag" />
+    </inputs>
+    <onsuccess>4fdbadd1-b078-4f46-9c3f-15e2cfd145d7</onsuccess>
+  </stage>
+  <stage stageid="6d9fd728-bc85-459d-9350-e0d84e2db177" name="End" type="End">
+    <subsheetid>3a215081-f117-4256-8c0b-d7f38046e7ab</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-30</displayx>
+    <displayy>60</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="2e91bf9d-68d4-4a2d-a9be-59b00f0a6b86" name="Mark Item as Exception" type="Action">
+    <subsheetid>3a215081-f117-4256-8c0b-d7f38046e7ab</subsheetid>
+    <loginhibit onsuccess="true" />
+    <narrative>
+    </narrative>
+    <displayx>-30</displayx>
+    <displayy>15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Item ID" friendlyname="Item ID" expr="[Item ID]" />
+      <input type="text" name="Exception Reason" friendlyname="Exception Reason" expr="[Exception Reason]" />
+      <input type="text" name="Queue Name" friendlyname="Queue Name" expr="[Queue Name]" />
+      <input type="text" name="Status" friendlyname="Status" expr="[Status]" />
+      <input type="text" name="Tag" friendlyname="Tag" expr="[Tag]" />
+      <input type="text" name="Filter" friendlyname="Filter" expr="&quot;(Locked);&quot;&amp;[Item ID]" />
+    </inputs>
+    <onsuccess>6d9fd728-bc85-459d-9350-e0d84e2db177</onsuccess>
+    <resource object="wrapper" action="mark_as_exception" />
+  </stage>
+  <stage stageid="0261ec0b-becc-4660-9646-2c178cf27d01" name="Item ID" type="Data">
+    <subsheetid>3a215081-f117-4256-8c0b-d7f38046e7ab</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>105</displayx>
+    <displayy>-150</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="89386cb2-95b0-44fe-a516-6ae085b58539" name="Exception Reason" type="Data">
+    <subsheetid>3a215081-f117-4256-8c0b-d7f38046e7ab</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>105</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="e3ef00e7-f7d3-4ca5-a52f-f1ca0fe4e7be" name="Mark Item as Completed" type="Action">
+    <subsheetid>b6be916f-558e-4263-bb7d-70745dc3ebb3</subsheetid>
+    <loginhibit onsuccess="true" />
+    <narrative>
+    </narrative>
+    <displayx>-30</displayx>
+    <displayy>0</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Queue Name" friendlyname="Queue Name" expr="[Queue Name]" />
+      <input type="text" name="Item ID" friendlyname="Item ID" expr="[Item ID]" />
+      <input type="text" name="Status" friendlyname="Status" expr="[Status]" />
+      <input type="text" name="Tag" friendlyname="Tag" expr="[Tag]" />
+      <input type="text" name="Filter" friendlyname="Filter" expr="&quot;(Locked);&quot;&amp;[Item ID]" />
+    </inputs>
+    <onsuccess>631cc6cf-a3c6-4f25-8a2c-9e97c1708d4c</onsuccess>
+    <resource object="wrapper" action="mark_as_complete" />
+  </stage>
+  <stage stageid="fb9fa3a6-52e7-46a7-bd03-179439ecaa2d" name="Queue Name" type="Data">
+    <subsheetid>b6be916f-558e-4263-bb7d-70745dc3ebb3</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>90</displayx>
+    <displayy>-75</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="6a8f7a17-9184-421b-a9e7-a32ec7413b10" name="Queue Name" type="Data">
+    <subsheetid>3a215081-f117-4256-8c0b-d7f38046e7ab</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>105</displayx>
+    <displayy>-60</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="ab7aae4d-5074-443b-9e17-0cf378cc08b4" name="Status" type="Data">
+    <subsheetid>b6be916f-558e-4263-bb7d-70745dc3ebb3</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>90</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="c7a6c747-e263-4f3d-9a66-5a6495c02ce8" name="Tag" type="Data">
+    <subsheetid>b6be916f-558e-4263-bb7d-70745dc3ebb3</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>90</displayx>
+    <displayy>15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="833df9bd-b627-4964-a2c8-d9e3d51ac9c1" name="Status" type="Data">
+    <subsheetid>3a215081-f117-4256-8c0b-d7f38046e7ab</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>105</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="3fb52fb7-6183-417f-91ee-aa07a669f42a" name="Tag" type="Data">
+    <subsheetid>3a215081-f117-4256-8c0b-d7f38046e7ab</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>105</displayx>
+    <displayy>30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="cdf614c5-4d71-4bad-8afe-d30741a242a4" name="decoder" type="SubSheetInfo">
+    <subsheetid>b20171d4-87c7-4425-9e28-2765dd230f70</subsheetid>
+    <narrative>Decode base64 encoded string</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="c43174c0-c903-408f-bafc-e7da30667a0b" name="Start" type="Start">
+    <subsheetid>b20171d4-87c7-4425-9e28-2765dd230f70</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-45</displayx>
+    <displayy>-135</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="encoded_string" stage="encodedString" />
+    </inputs>
+    <onsuccess>160e42cd-5e85-4f14-b7d0-33591cb0fee3</onsuccess>
+  </stage>
+  <stage stageid="0e8cd244-e88d-4e2c-bfd5-b1a9c89ae073" name="End" type="End">
+    <subsheetid>b20171d4-87c7-4425-9e28-2765dd230f70</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-45</displayx>
+    <displayy>-45</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="text" name="decoded_string" stage="decodedString" />
+    </outputs>
+  </stage>
+  <stage stageid="160e42cd-5e85-4f14-b7d0-33591cb0fee3" name="decode json" type="Code">
+    <subsheetid>b20171d4-87c7-4425-9e28-2765dd230f70</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-45</displayx>
+    <displayy>-90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="encodedString" expr="[encodedString]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="decodedString" stage="decodedString" />
+    </outputs>
+    <onsuccess>0e8cd244-e88d-4e2c-bfd5-b1a9c89ae073</onsuccess>
+    <code><![CDATA[byte[] data = Convert.FromBase64String(encodedString);
+decodedString = Encoding.UTF8.GetString(data);]]></code>
+  </stage>
+  <stage stageid="2c86bada-fedb-49a6-b353-f6e76cdbeb31" name="decodedString" type="Data">
+    <subsheetid>b20171d4-87c7-4425-9e28-2765dd230f70</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>165</displayx>
+    <displayy>-120</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="a6bbde53-9162-4ca6-93ff-da211bc568c4" name="encodedString" type="Data">
+    <subsheetid>b20171d4-87c7-4425-9e28-2765dd230f70</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>60</displayx>
+    <displayy>-120</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="ff94e2bb-ca61-4f94-8ab1-1666803047de" name="add to queue" type="SubSheetInfo">
+    <subsheetid>b37aba1b-bc6f-4721-bb1b-67d2df6ca839</subsheetid>
+    <narrative>Add a collection of items to queue</narrative>
+    <displayx>-180</displayx>
+    <displayy>-135</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="1f27afed-10d6-4da6-afc0-57bca46ef2b8" name="Start" type="Start">
+    <subsheetid>b37aba1b-bc6f-4721-bb1b-67d2df6ca839</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-165</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Queue Name" stage="Queue Name" />
+      <input type="text" name="Queue Items" stage="Queue Items" />
+      <input type="text" name="Key Name" stage="Key Name" />
+    </inputs>
+    <onsuccess>fa6d098a-2058-40e4-9fd8-7f7f0919b6fc</onsuccess>
+  </stage>
+  <stage stageid="309c2c0c-52e6-4e33-9ddb-a00357ee3bd7" name="End" type="End">
+    <subsheetid>b37aba1b-bc6f-4721-bb1b-67d2df6ca839</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>285</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="82d57da7-5789-40b0-9021-f8a24d17e877" name="Add to Queue" type="Action">
+    <subsheetid>b37aba1b-bc6f-4721-bb1b-67d2df6ca839</subsheetid>
+    <loginhibit onsuccess="true" />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>195</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Queue Name" friendlyname="Queue Name" narrative="Name of queue to add items to." expr="[Queue Name]" />
+      <input type="text" name="Status" friendlyname="Status" narrative="Status of added items." expr="" />
+      <input type="collection" name="Queue Items" friendlyname="Queue Items" narrative="Collection of items to add." expr="[Merged]" />
+      <input type="text" name="Key Name" friendlyname="Key Name" narrative="Name of column that stores item key." expr="[Key Name]" />
+      <input type="flag" name="Include Pending" friendlyname="Include Pending" narrative="If true, includes pending items in search. Defaults to true." expr="" />
+      <input type="flag" name="Include Deferred" friendlyname="Include Deferred" narrative="If true, includes deferred items in search. Defaults to true." expr="" />
+      <input type="flag" name="Include Completed" friendlyname="Include Completed" narrative="If true, includes completed items in search. Defaults to true." expr="" />
+      <input type="flag" name="Include Terminated" friendlyname="Include Terminated" narrative="If true, includes terminated items in search. Defaults to true." expr="" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="Item IDs" friendlyname="Item IDs" narrative="IDs of all items that were added." stage="Item IDs" />
+    </outputs>
+    <onsuccess>f3559fa9-2bdf-42df-9aa4-57485d0cd5a4</onsuccess>
+    <resource object="wrapper" action="add_to_queue" />
+  </stage>
+  <stage stageid="d7e25665-05ab-4d6f-a5c6-5de37db2084e" name="to collection" type="Action">
+    <subsheetid>b37aba1b-bc6f-4721-bb1b-67d2df6ca839</subsheetid>
+    <loginhibit onsuccess="true" />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-75</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="json" friendlyname="json" expr="[Queue Items]" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="Result" friendlyname="Result" stage="Queue Data" />
+    </outputs>
+    <onsuccess>67046a3b-8ca4-4f9f-93f1-679c16fc661d</onsuccess>
+    <resource object="Utility - JSON" action="JSON to Collection" />
+  </stage>
+  <stage stageid="ac34730e-4a0b-48f5-ab8f-8ddacebef6f7" name="Key Name" type="Data">
+    <subsheetid>b37aba1b-bc6f-4721-bb1b-67d2df6ca839</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>165</displayx>
+    <displayy>-150</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="6cd9f341-33fd-42d3-b737-68961a51ff78" name="Queue Items" type="Data">
+    <subsheetid>b37aba1b-bc6f-4721-bb1b-67d2df6ca839</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>165</displayx>
+    <displayy>-60</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="9ffd2cd1-21d9-4040-8399-c5a12293a574" name="Queue Name" type="Data">
+    <subsheetid>b37aba1b-bc6f-4721-bb1b-67d2df6ca839</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>165</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="292e2a9e-89dc-4455-9c0d-506a9d16ea45" name="Queue Data" type="Collection">
+    <subsheetid>b37aba1b-bc6f-4721-bb1b-67d2df6ca839</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>285</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="a9bcafb3-eb4d-4ad5-8109-761df91ec373" name="Merged" type="Collection">
+    <subsheetid>b37aba1b-bc6f-4721-bb1b-67d2df6ca839</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>285</displayx>
+    <displayy>30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="67046a3b-8ca4-4f9f-93f1-679c16fc661d" name="Count Row" type="Action">
+    <subsheetid>b37aba1b-bc6f-4721-bb1b-67d2df6ca839</subsheetid>
+    <loginhibit onsuccess="true" />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Collection Name" friendlyname="Collection Name" narrative="The name of the collection to act upon" expr="&quot;Queue Data&quot;" />
+    </inputs>
+    <outputs>
+      <output type="number" name="Count" friendlyname="Count" narrative="The number of rows counted in the collection" stage="Count" />
+    </outputs>
+    <onsuccess>0c619c4a-02ff-4904-b07c-01cdb9fe10fe</onsuccess>
+    <resource object="Blueprism.AutomateProcessCore.clsCollectionActions" action="Count Rows" />
+  </stage>
+  <stage stageid="41220514-3d7f-450c-b286-8ee80c07caf3" name="Count" type="Data">
+    <subsheetid>b37aba1b-bc6f-4721-bb1b-67d2df6ca839</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>285</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="00fac6ee-0a3e-426f-b834-dbf521b7102f" name="Append" type="Action">
+    <subsheetid>b37aba1b-bc6f-4721-bb1b-67d2df6ca839</subsheetid>
+    <loginhibit onsuccess="true" />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="collection" name="Main Collection" friendlyname="Main Collection" narrative="The collection to append to." expr="[Merged]" />
+      <input type="collection" name="Collection to Append" friendlyname="Collection to Append" narrative="The collection to append." expr="[Current.JSON:Array]" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="Combined Collection" friendlyname="Combined Collection" narrative="The combined collection." stage="Merged" />
+    </outputs>
+    <onsuccess>a71ff018-4bd1-4234-b190-4c43eab7ac3e</onsuccess>
+    <resource object="Utility - Collection Manipulation" action="Append Rows to Collection" />
+  </stage>
+  <stage stageid="f06a0d9f-261f-4691-9b32-3ddd918850bf" name="Copy Rows" type="Action">
+    <subsheetid>b37aba1b-bc6f-4721-bb1b-67d2df6ca839</subsheetid>
+    <loginhibit onsuccess="true" />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>60</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="number" name="Start Row" friendlyname="Start Row" narrative="The row index to start copying from. The index is from 0 to N-1 (where N is the total number of rows in the collection)." expr="[counter]" />
+      <input type="number" name="Number of Rows to Copy" friendlyname="Number of Rows to Copy" narrative="The number of rows to copy." expr="1" />
+      <input type="collection" name="Source Collection" friendlyname="Source Collection" narrative="The collection to copy." expr="[Queue Data]" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="Output Collection" friendlyname="Output Collection" narrative="The copied collection." stage="Current" />
+    </outputs>
+    <onsuccess>00fac6ee-0a3e-426f-b834-dbf521b7102f</onsuccess>
+    <resource object="Utility - Collection Manipulation" action="Copy Rows" />
+  </stage>
+  <stage stageid="f1a7b28c-85b6-485f-844b-74dd1168d3ca" name="Current" type="Collection">
+    <subsheetid>b37aba1b-bc6f-4721-bb1b-67d2df6ca839</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>285</displayx>
+    <displayy>75</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="a71ff018-4bd1-4234-b190-4c43eab7ac3e" name="exit?" type="Decision">
+    <subsheetid>b37aba1b-bc6f-4721-bb1b-67d2df6ca839</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>150</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <decision expression="[counter]&gt;[Count]-2" />
+    <ontrue>82d57da7-5789-40b0-9021-f8a24d17e877</ontrue>
+    <onfalse>0cfe6067-78cd-4bc7-bfd9-0f244964410e</onfalse>
+  </stage>
+  <stage stageid="082db3a0-945d-4ec6-8c24-8ea87e5654e7" name="counter" type="Data">
+    <subsheetid>b37aba1b-bc6f-4721-bb1b-67d2df6ca839</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>285</displayx>
+    <displayy>-150</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>number</datatype>
+    <initialvalue>0</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="0cfe6067-78cd-4bc7-bfd9-0f244964410e" name="increment" type="Calculation">
+    <subsheetid>b37aba1b-bc6f-4721-bb1b-67d2df6ca839</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>90</displayx>
+    <displayy>150</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>4b524a77-087b-45ad-b73a-2e1ef822314d</onsuccess>
+    <calculation expression="[counter]+1" stage="counter" />
+  </stage>
+  <stage stageid="4b524a77-087b-45ad-b73a-2e1ef822314d" name="Anchor1" type="Anchor">
+    <subsheetid>b37aba1b-bc6f-4721-bb1b-67d2df6ca839</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>90</displayx>
+    <displayy>60</displayy>
+    <displaywidth>10</displaywidth>
+    <displayheight>10</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>f06a0d9f-261f-4691-9b32-3ddd918850bf</onsuccess>
+  </stage>
+  <stage stageid="029adc6b-c2e0-49ae-9220-937ef3eb63dd" name="Item IDs" type="Collection">
+    <subsheetid>b37aba1b-bc6f-4721-bb1b-67d2df6ca839</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>285</displayx>
+    <displayy>-60</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="0c619c4a-02ff-4904-b07c-01cdb9fe10fe" name="No Rows?" type="Decision">
+    <subsheetid>b37aba1b-bc6f-4721-bb1b-67d2df6ca839</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <decision expression="[Count] = 0" />
+    <ontrue>2830213d-277b-403a-bea5-e8ec6b8061d3</ontrue>
+    <onfalse>f06a0d9f-261f-4691-9b32-3ddd918850bf</onfalse>
+  </stage>
+  <stage stageid="21f160eb-0758-410e-8b39-92082dbc5780" name="Anchor2" type="Anchor">
+    <subsheetid>b37aba1b-bc6f-4721-bb1b-67d2df6ca839</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-45</displayx>
+    <displayy>240</displayy>
+    <displaywidth>10</displaywidth>
+    <displayheight>10</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>f3559fa9-2bdf-42df-9aa4-57485d0cd5a4</onsuccess>
+  </stage>
+  <stage stageid="2830213d-277b-403a-bea5-e8ec6b8061d3" name="Anchor3" type="Anchor">
+    <subsheetid>b37aba1b-bc6f-4721-bb1b-67d2df6ca839</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-45</displayx>
+    <displayy>15</displayy>
+    <displaywidth>10</displaywidth>
+    <displayheight>10</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>21f160eb-0758-410e-8b39-92082dbc5780</onsuccess>
+  </stage>
+  <stage stageid="f3559fa9-2bdf-42df-9aa4-57485d0cd5a4" name="Anchor4" type="Anchor">
+    <subsheetid>b37aba1b-bc6f-4721-bb1b-67d2df6ca839</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>240</displayy>
+    <displaywidth>10</displaywidth>
+    <displayheight>10</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>309c2c0c-52e6-4e33-9ddb-a00357ee3bd7</onsuccess>
+  </stage>
+  <stage stageid="fa6d098a-2058-40e4-9fd8-7f7f0919b6fc" name="decode json" type="Action">
+    <subsheetid>b37aba1b-bc6f-4721-bb1b-67d2df6ca839</subsheetid>
+    <loginhibit onsuccess="true" />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-120</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="encoded_string" friendlyname="encoded_string" expr="[Queue Items]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="decoded_string" friendlyname="decoded_string" stage="Queue Items" />
+    </outputs>
+    <onsuccess>d7e25665-05ab-4d6f-a5c6-5de37db2084e</onsuccess>
+    <resource object="work queues" action="decoder" />
+  </stage>
+  <stage stageid="21042dbd-eeeb-4886-b02c-c05a8c9ea45f" name="decode status" type="Action">
+    <subsheetid>b6be916f-558e-4263-bb7d-70745dc3ebb3</subsheetid>
+    <loginhibit onsuccess="true" />
+    <narrative>
+    </narrative>
+    <displayx>-30</displayx>
+    <displayy>-90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="encoded_string" friendlyname="encoded_string" expr="[Status]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="decoded_string" friendlyname="decoded_string" stage="Status" />
+    </outputs>
+    <onsuccess>bff1e6a5-e131-498c-8d87-40bc86979fd3</onsuccess>
+    <resource object="work queues" action="decoder" />
+  </stage>
+  <stage stageid="bff1e6a5-e131-498c-8d87-40bc86979fd3" name="decode tag" type="Action">
+    <subsheetid>b6be916f-558e-4263-bb7d-70745dc3ebb3</subsheetid>
+    <loginhibit onsuccess="true" />
+    <narrative>
+    </narrative>
+    <displayx>-30</displayx>
+    <displayy>-45</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="encoded_string" friendlyname="encoded_string" expr="[Tag]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="decoded_string" friendlyname="decoded_string" stage="Tag" />
+    </outputs>
+    <onsuccess>e3ef00e7-f7d3-4ca5-a52f-f1ca0fe4e7be</onsuccess>
+    <resource object="work queues" action="decoder" />
+  </stage>
+  <stage stageid="2fb11364-6cb4-42eb-9353-f02257f57a0c" name="decode status" type="Action">
+    <subsheetid>3a215081-f117-4256-8c0b-d7f38046e7ab</subsheetid>
+    <loginhibit onsuccess="true" />
+    <narrative>
+    </narrative>
+    <displayx>-30</displayx>
+    <displayy>-75</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="encoded_string" friendlyname="encoded_string" expr="[Status]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="decoded_string" friendlyname="decoded_string" stage="Status" />
+    </outputs>
+    <onsuccess>cf267dd5-91aa-40ce-8be5-fd55ca1cf1d4</onsuccess>
+    <resource object="work queues" action="decoder" />
+  </stage>
+  <stage stageid="cf267dd5-91aa-40ce-8be5-fd55ca1cf1d4" name="decode tag" type="Action">
+    <subsheetid>3a215081-f117-4256-8c0b-d7f38046e7ab</subsheetid>
+    <loginhibit onsuccess="true" />
+    <narrative>
+    </narrative>
+    <displayx>-30</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="encoded_string" friendlyname="encoded_string" expr="[Tag]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="decoded_string" friendlyname="decoded_string" stage="Tag" />
+    </outputs>
+    <onsuccess>2e91bf9d-68d4-4a2d-a9be-59b00f0a6b86</onsuccess>
+    <resource object="work queues" action="decoder" />
+  </stage>
+  <stage stageid="4fdbadd1-b078-4f46-9c3f-15e2cfd145d7" name="decode exception" type="Action">
+    <subsheetid>3a215081-f117-4256-8c0b-d7f38046e7ab</subsheetid>
+    <loginhibit onsuccess="true" />
+    <narrative>
+    </narrative>
+    <displayx>-30</displayx>
+    <displayy>-120</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="encoded_string" friendlyname="encoded_string" expr="[Exception Reason]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="decoded_string" friendlyname="decoded_string" stage="Exception Reason" />
+    </outputs>
+    <onsuccess>2fb11364-6cb4-42eb-9353-f02257f57a0c</onsuccess>
+    <resource object="work queues" action="decoder" />
+  </stage>
+  <stage stageid="2a2620b6-eda5-4f22-8e8b-817656c33fea" name="get next item" type="SubSheetInfo">
+    <subsheetid>62c95582-6d89-4d8d-bdc6-39714fa72f67</subsheetid>
+    <narrative>Get next pending item, lock item by tag, and skip items that are locked</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="d4844dd1-f2af-4234-bc04-315d72315713" name="Start" type="Start">
+    <subsheetid>62c95582-6d89-4d8d-bdc6-39714fa72f67</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-45</displayx>
+    <displayy>-135</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Queue Name" stage="Queue Name" />
+    </inputs>
+    <onsuccess>f37037d0-159b-4465-ad7d-41a3b16a9bd0</onsuccess>
+  </stage>
+  <stage stageid="4a084e11-a54f-4f71-baa6-f16781237bed" name="End" type="End">
+    <subsheetid>62c95582-6d89-4d8d-bdc6-39714fa72f67</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>30</displayx>
+    <displayy>105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="text" name="Data" stage="json" />
+      <output type="text" name="Item ID" stage="Item ID" />
+    </outputs>
+  </stage>
+  <stage stageid="f37037d0-159b-4465-ad7d-41a3b16a9bd0" name="get next item" type="Action">
+    <subsheetid>62c95582-6d89-4d8d-bdc6-39714fa72f67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <narrative>This action gets the next item to be worked from the queue, returning its details and locking it so no other case can work it.
+
+Items with higher priorities (lower numerical value) are processed first. Where the priority is the same, the next item is the one that has been in the queue the longest,  is not already locked, and is not already completed.
+
+The Item ID returned is used to make further calls to update the work status for that item. It may be empty, in which case there are no items available. This can mean either a) the queue is empty, or b) the queue is not running. This mechanism can be used to cleanly stop all processes working a particular queue at the end of the next case. Items that have a 'deferred' time set will not be returned unless that time has been reached.</narrative>
+    <displayx>-45</displayx>
+    <displayy>-90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Queue Name" friendlyname="Queue Name" expr="[Queue Name]" />
+      <input type="number" name="Skip" friendlyname="Skip" expr="[Skip]" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="Data" friendlyname="Data" stage="Data" />
+      <output type="text" name="Item ID" friendlyname="Item ID" stage="Item ID" />
+      <output type="text" name="Tag" friendlyname="Tag" stage="Tag" />
+    </outputs>
+    <onsuccess>3e2aa5b1-2e60-41ea-a1fc-cd90ea931bf1</onsuccess>
+    <resource object="wrapper" action="get_next_item" />
+  </stage>
+  <stage stageid="63b2b034-2b06-494f-86e0-2584459b016e" name="Data" type="Collection">
+    <subsheetid>62c95582-6d89-4d8d-bdc6-39714fa72f67</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>330</displayx>
+    <displayy>-120</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="d88c115a-6ae9-47c3-ad54-4fb5a31f460e" name="Item ID" type="Data">
+    <subsheetid>62c95582-6d89-4d8d-bdc6-39714fa72f67</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>225</displayx>
+    <displayy>-75</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="990cbaec-5df1-445e-b92d-4738d3d7f13e" name="Queue Name" type="Data">
+    <subsheetid>62c95582-6d89-4d8d-bdc6-39714fa72f67</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>120</displayx>
+    <displayy>-120</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="2a711c55-0975-403e-8256-17614786c570" name="coll to json" type="Action">
+    <subsheetid>62c95582-6d89-4d8d-bdc6-39714fa72f67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <narrative>
+    </narrative>
+    <displayx>30</displayx>
+    <displayy>45</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="collection" name="Data" friendlyname="Data" expr="[Data]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="JSON" friendlyname="JSON" stage="json" />
+    </outputs>
+    <onsuccess>4a084e11-a54f-4f71-baa6-f16781237bed</onsuccess>
+    <resource object="Utility - JSON" action="Collection to JSON" />
+  </stage>
+  <stage stageid="7f418b3b-2d08-4a22-9d59-7791a3b39f0c" name="json" type="Data">
+    <subsheetid>62c95582-6d89-4d8d-bdc6-39714fa72f67</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>225</displayx>
+    <displayy>-120</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="6a5877d6-907d-4282-a8f5-97404469b192" name="Tag Item as Locked" type="Action">
+    <subsheetid>62c95582-6d89-4d8d-bdc6-39714fa72f67</subsheetid>
+    <loginhibit onsuccess="true" />
+    <narrative>
+    </narrative>
+    <displayx>-45</displayx>
+    <displayy>45</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Item ID" friendlyname="Item ID" expr="[Item ID]" />
+      <input type="text" name="Tag" friendlyname="Tag" expr="&quot;(Locked)&quot;" />
+    </inputs>
+    <onsuccess>2a711c55-0975-403e-8256-17614786c570</onsuccess>
+    <resource object="wrapper" action="tag_item" />
+  </stage>
+  <stage stageid="58fbe0f0-e160-40b4-8960-aaea984a4c7a" name="Tag" type="Data">
+    <subsheetid>62c95582-6d89-4d8d-bdc6-39714fa72f67</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>330</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="3e2aa5b1-2e60-41ea-a1fc-cd90ea931bf1" name="Item Locked?" type="Decision">
+    <subsheetid>62c95582-6d89-4d8d-bdc6-39714fa72f67</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-45</displayx>
+    <displayy>-45</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <decision expression="Left([Tag], 8)=&quot;(Locked)&quot;" />
+    <ontrue>e6149c55-e1ed-47c9-a750-053435074305</ontrue>
+    <onfalse>dddf3fb3-1d1c-48d2-a754-d65e9f830b6e</onfalse>
+  </stage>
+  <stage stageid="5e6b91ab-f31c-408b-8f51-24db495f4a45" name="Skip" type="Data">
+    <subsheetid>62c95582-6d89-4d8d-bdc6-39714fa72f67</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>330</displayx>
+    <displayy>-75</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>number</datatype>
+    <initialvalue>0</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="e6149c55-e1ed-47c9-a750-053435074305" name="Increment Skip" type="Calculation">
+    <subsheetid>62c95582-6d89-4d8d-bdc6-39714fa72f67</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>30</displayx>
+    <displayy>-45</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>d8a785cf-ba68-46a6-8e9e-751e7d122489</onsuccess>
+    <calculation expression="[Skip]+1" stage="Skip" />
+  </stage>
+  <stage stageid="d8a785cf-ba68-46a6-8e9e-751e7d122489" name="Anchor5" type="Anchor">
+    <subsheetid>62c95582-6d89-4d8d-bdc6-39714fa72f67</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>30</displayx>
+    <displayy>-90</displayy>
+    <displaywidth>10</displaywidth>
+    <displayheight>10</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>f37037d0-159b-4465-ad7d-41a3b16a9bd0</onsuccess>
+  </stage>
+  <stage stageid="dddf3fb3-1d1c-48d2-a754-d65e9f830b6e" name="No Item?" type="Decision">
+    <subsheetid>62c95582-6d89-4d8d-bdc6-39714fa72f67</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-45</displayx>
+    <displayy>0</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <decision expression="[Item ID] = &quot;&quot;" />
+    <ontrue>4ce12a1f-1e5c-4874-821f-e4dbe19927c5</ontrue>
+    <onfalse>6a5877d6-907d-4282-a8f5-97404469b192</onfalse>
+  </stage>
+  <stage stageid="4ce12a1f-1e5c-4874-821f-e4dbe19927c5" name="Anchor6" type="Anchor">
+    <subsheetid>62c95582-6d89-4d8d-bdc6-39714fa72f67</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>30</displayx>
+    <displayy>0</displayy>
+    <displaywidth>10</displaywidth>
+    <displayheight>10</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>2a711c55-0975-403e-8256-17614786c570</onsuccess>
+  </stage>
+  <stage stageid="a4103f30-f7ad-470a-a5c5-05a5deeb8896" name="Input" type="Block">
+    <subsheetid>b6be916f-558e-4263-bb7d-70745dc3ebb3</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>45</displayx>
+    <displayy>-150</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>195</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="04e3bc99-4d52-4f88-84d3-f3ea47362915" name="Input" type="Block">
+    <subsheetid>3a215081-f117-4256-8c0b-d7f38046e7ab</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>60</displayx>
+    <displayy>-180</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>240</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="b9b37c7b-8381-4440-84c5-3868ab0469a8" name="Input" type="Block">
+    <subsheetid>b37aba1b-bc6f-4721-bb1b-67d2df6ca839</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>120</displayx>
+    <displayy>-180</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>150</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="dc4b3af3-9910-408d-813d-dc650be57820" name="Local" type="Block">
+    <subsheetid>b37aba1b-bc6f-4721-bb1b-67d2df6ca839</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>240</displayx>
+    <displayy>-180</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>285</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="FF0000" />
+  </stage>
+  <stage stageid="0e7c5697-d3e2-469f-899c-c09c76bd041a" name="Input" type="Block">
+    <subsheetid>b20171d4-87c7-4425-9e28-2765dd230f70</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-150</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>60</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="c452c18e-3acf-4c48-b62a-e5f3630ba843" name="Output" type="Block">
+    <subsheetid>b20171d4-87c7-4425-9e28-2765dd230f70</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>120</displayx>
+    <displayy>-150</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>60</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="FF0000" />
+  </stage>
+  <stage stageid="9772c88b-5556-44e4-a924-b2b435fd9be9" name="Input" type="Block">
+    <subsheetid>62c95582-6d89-4d8d-bdc6-39714fa72f67</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>75</displayx>
+    <displayy>-150</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>60</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="6ab69ac2-0283-42c1-8b4e-0f34fba7debf" name="Output" type="Block">
+    <subsheetid>62c95582-6d89-4d8d-bdc6-39714fa72f67</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>180</displayx>
+    <displayy>-150</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>105</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="00FF00" />
+  </stage>
+  <stage stageid="7de8cf1e-ac53-4985-8475-09a0eccf825a" name="Local" type="Block">
+    <subsheetid>62c95582-6d89-4d8d-bdc6-39714fa72f67</subsheetid>
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>285</displayx>
+    <displayy>-150</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>150</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="FF0000" />
+  </stage>
+</process>

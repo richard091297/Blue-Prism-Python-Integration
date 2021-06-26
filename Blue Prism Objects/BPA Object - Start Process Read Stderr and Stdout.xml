@@ -1,0 +1,172 @@
+﻿<process name="Start Process Read Stderr and Stdout" version="6.4.0.8445" bpversion="6.5.1.14401" narrative="Utilities for interacting with the environment - read screen resolution, determine OS type, etc." byrefcollection="true" type="object" runmode="Background" preferredid="1755dccf-ee8a-456b-86d6-6d83220f12de">
+  <appdef>
+    <element name="Application Root">
+      <id>257afd68-bed2-460b-94e5-17b2b6263b15</id>
+      <type>Application</type>
+      <basetype>Application</basetype>
+      <datatype>unknown</datatype>
+      <diagnose>False</diagnose>
+    </element>
+  </appdef>
+  <view>
+    <camerax>-67</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <stage stageid="fe09088f-160d-4f5e-af9d-a2cf44a91d21" name="Start Process Read Stderr and Stdout" type="SubSheetInfo">
+    <narrative>Starts a process directly with the given arguments, reads the standard output and standard error and outputs them in seperate data items.</narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="56b0bbbe-2836-41b5-8ccf-30fa098e975f" name="Start" type="Start">
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-15</displayx>
+    <displayy>0</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Arguments" narrative="The arguments that coincide with the process." stage="Arguments" />
+      <input type="text" name="Process Name" narrative="The name of the process to start." stage="Process Name" />
+    </inputs>
+    <onsuccess>d8552129-84eb-4d65-8bee-d06820fb6e5f</onsuccess>
+  </stage>
+  <stage stageid="e9699401-5328-4e3b-ad11-bd29880236e4" name="End" type="End">
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-15</displayx>
+    <displayy>120</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <outputs>
+      <output type="text" name="Standard Output" stage="Standard Output" />
+      <output type="text" name="Standard Error" stage="Standard Error" />
+    </outputs>
+  </stage>
+  <stage stageid="1a31c8d4-725e-4b41-8b64-72ff5feccd2f" name="Arguments" type="Data">
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>0</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="d8552129-84eb-4d65-8bee-d06820fb6e5f" name="Run Process read Output" type="Code">
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-15</displayx>
+    <displayy>60</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Argument" expr="[Arguments]" />
+      <input type="text" name="Process Name" expr="[Process Name]" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Standard Output" stage="Standard Output" />
+      <output type="text" name="Standard Error" stage="Standard Error" />
+    </outputs>
+    <onsuccess>e9699401-5328-4e3b-ad11-bd29880236e4</onsuccess>
+    <code><![CDATA[Dim processName As String = Process_Name
+
+Dim process As New Process() With {
+	.StartInfo = New ProcessStartInfo() With {
+		.FileName = processName,
+		.Arguments = Argument,
+		.UseShellExecute = False,
+		.CreateNoWindow = True,
+		.RedirectStandardError = True,
+		.RedirectStandardOutput = True
+	}
+}
+
+process.Start()
+
+' Read the standard out and standard error async
+' to avoid any EOF blocking while the process
+' waits to exit.
+
+Dim standardOutput = process.StandardOutput.ReadToEndAsync()
+Dim standardError = process.StandardError.ReadToEndAsync()
+
+process.WaitForExit()
+
+If standardOutput.isCompleted Then Standard_Output = standardOutput.Result
+If standardError.isCompleted Then Standard_Error = standardError.Result]]></code>
+  </stage>
+  <stage stageid="458272d5-fe32-4588-9ef3-7af2fbacdf25" name="Standard Output" type="Data">
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>180</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="a63c7a4b-9add-4e2e-8f28-e8886b11dee1" name="Standard Error" type="Data">
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>135</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="1fe26b2b-6b1d-4e63-9679-97779a9da64f" name="Inputs" type="Block">
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-270</displayx>
+    <displayy>-30</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>105</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="679cebbb-478d-4647-9cf9-6459799440aa" name="Outputs" type="Block">
+    <loginhibit />
+    <narrative>
+    </narrative>
+    <displayx>-270</displayx>
+    <displayy>105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>105</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="8f6e9278-4ab8-4754-935f-66082c13a038" name="Process Name" type="Data">
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>45</displayy>
+    <displaywidth>90</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+</process>
