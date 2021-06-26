@@ -1,5 +1,6 @@
 from WorkQueues import WorkQueues
 from Credentials import Credentials
+from RPA.Browser.Selenium import Selenium
 
 
 def main():
