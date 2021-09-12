@@ -1,5 +1,5 @@
-from WorkQueues import WorkQueues
-from Credentials import Credentials
+from work_queues import WorkQueues
+from credentials import Credentials
 from RPA.Browser.Selenium import Selenium
 
 
